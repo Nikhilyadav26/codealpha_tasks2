@@ -1,7 +1,6 @@
 # ShopEase — Simple E-commerce Store
 
-A lightweight full-stack e-commerce web application built for an internship submission.
-
+A lightweight full-stack e-commerce web application .
 **Stack:** Node.js + Express.js (backend) · HTML/CSS/vanilla JavaScript (frontend) · SQLite (database, via `better-sqlite3`)
 
 No heavy frameworks, no ORM, no external database server required — everything runs from a single `npm install` + `npm start`.
