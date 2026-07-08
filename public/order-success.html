@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Order Confirmed — ShopEase</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="/index.html" class="logo">🛍️ ShopEase</a>
+    <nav class="nav-links" style="margin-left:auto;">
+      <a href="/index.html">Home</a>
+      <a href="/cart.html" class="cart-badge">Cart <span class="cart-count" id="cart-count">0</span></a>
+      <span id="nav-auth-slot" style="display:flex; gap:16px; align-items:center;"></span>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="empty-state" id="success-box">
+    <h3>Loading order confirmation...</h3>
+  </div>
+</main>
+
+<footer>&copy; 2026 ShopEase</footer>
+
+<script src="/js/api.js"></script>
+<script>
+  const orderId = new URLSearchParams(window.location.search).get('id');
+  const box = document.getElementById('success-box');
+
+  (async () => {
+    if (!orderId) {
+      box.innerHTML = '<h3>No order found.</h3>';
+      return;
+    }
+    try {
+      const { order } = await apiFetch(`/orders/${orderId}`);
+      box.innerHTML = `
+        <h3>🎉 Order Placed Successfully!</h3>
+        <p>Your order <strong>#${order.id}</strong> has been received and is now <strong>${escapeHtml(order.status)}</strong>.</p>
+        <p>Total: <strong>${formatCurrency(order.total_amount)}</strong></p>
+        <p>Shipping to: ${escapeHtml(order.shipping_name)}, ${escapeHtml(order.shipping_address)}, ${escapeHtml(order.shipping_city)} - ${escapeHtml(order.shipping_zip)}</p>
+        <div style="margin-top:20px; display:flex; gap:12px; justify-content:center;">
+          <a href="/orders.html" class="btn btn-primary">View My Orders</a>
+          <a href="/index.html" class="btn btn-outline">Continue Shopping</a>
+        </div>
+      `;
+      refreshCartCount();
+    } catch (err) {
+      box.innerHTML = `<div class="alert alert-error">${escapeHtml(err.message)}</div>`;
+    }
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ShopEase — Simple E-commerce Store</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="/index.html" class="logo">🛍️ ShopEase</a>
+    <form class="search-bar" id="search-form">
+      <input type="text" id="search-input" placeholder="Search products..." />
+      <button type="submit">Search</button>
+    </form>
+    <nav class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/cart.html" class="cart-badge">Cart <span class="cart-count" id="cart-count">0</span></a>
+      <span id="nav-auth-slot" style="display:flex; gap:16px; align-items:center;"></span>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Everything you need, in one place</h1>
+    <p>Quality products, fast checkout, and a smooth shopping experience.</p>
+  </div>
+</section>
+
+<main class="container">
+  <div class="filter-row" id="category-filters">
+    <span class="chip active" data-category="">All</span>
+  </div>
+
+  <div id="alert-box"></div>
+  <div class="product-grid" id="product-grid">
+    <p>Loading products...</p>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 ShopEase — Built for internship submission with Express.js &amp; Node.js
+</footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

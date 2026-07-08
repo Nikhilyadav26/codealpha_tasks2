@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Cart — ShopEase</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="/index.html" class="logo">🛍️ ShopEase</a>
+    <nav class="nav-links" style="margin-left:auto;">
+      <a href="/index.html">Home</a>
+      <a href="/cart.html" class="cart-badge">Cart <span class="cart-count" id="cart-count">0</span></a>
+      <span id="nav-auth-slot" style="display:flex; gap:16px; align-items:center;"></span>
+    </nav>
+  </div>
+</header>
+
+<main class="container" style="margin-top: 30px;">
+  <h1>Your Shopping Cart</h1>
+  <div id="alert-box"></div>
+  <div id="cart-content">
+    <p>Loading cart...</p>
+  </div>
+</main>
+
+<footer>&copy; 2026 ShopEase</footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/cart.js"></script>
+</body>
+</html>
