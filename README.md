@@ -89,21 +89,6 @@ Uses `better-sqlite3` — a fast, synchronous, file-based SQL database. No separ
 
 Tables: `users`, `products`, `cart_items`, `orders`, `order_items`.
 
-## 🧪 Quick API test (optional)
 
-```bash
-# Register
-curl -X POST http://localhost:3000/api/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Jane Doe","email":"jane@example.com","password":"secret123"}'
 
-# List products
-curl http://localhost:3000/api/products
-```
 
-## 📌 Notes for submission
-
-- Passwords are hashed with `bcryptjs` — never stored in plain text.
-- Stock is checked and decremented atomically (inside a DB transaction) at checkout to prevent overselling.
-- Frontend is plain HTML/CSS/JS (no build step) so it's easy to read and explain during a viva/demo.
-- To reset all data, stop the server and delete `data/store.db*`, then run `npm run seed` again.
